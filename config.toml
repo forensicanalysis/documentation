@@ -1,0 +1,69 @@
+title = "Elementary"
+theme = "tract"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+description = "tooling for forensic investigations."
+icon_set = "ionicons"
+
+[params.colors]
+primary = "#0277bd" # c2185b
+secondary = "#0277bd"
+
+[markup.highlight]
+style = "fruity"
+
+[outputs]
+home = ["HTML", "JSON"]
+
+[[params.fonts]]
+name = "Alata"
+sizes = [400]
+type = "sans_serif"
+
+[[params.fonts]]
+name = "Roboto Mono"
+sizes = [400]
+type = "monospace"
+
+# [params.social.twitter]
+# handle = "jonas_plum"
+
+[params.social.github]
+repo = "forensicanalysis"
+
+[[menu.main]]
+name = "Docs"
+identifier = "docs"
+url = "/docs"
+weight = 1
+
+[[menu.main]]
+name = "Getting started"
+parent = "docs"
+url = "/docs/getting-started/"
+weight = 1
+
+[[menu.main]]
+name = "Acquisition"
+parent = "docs"
+url = "/docs/acquisition/"
+weight = 2
+
+[[menu.main]]
+name = "Processing"
+parent = "docs"
+url = "/docs/processing/"
+weight = 3
+
+[[menu.main]]
+name = "Architecture"
+parent = "docs"
+url = "/docs/architecture/"
+weight = 4
+
+[[menu.main]]
+name = "Blog"
+identifier = "blog"
+url = "/blog"
+weight = 2
