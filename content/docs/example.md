@@ -51,8 +51,12 @@ You can see a listing of all available syntax highlighting themes, plus examples
 
 {{< warning title="Available themes" >}}
 You can see a listing of all available syntax highlighting themes, plus examples, in the [Chroma Style Gallery](https://xyproto.github.io/splash/docs/all.html).
-{{< /info >}}
+{{< /warning >}}
 
 {{< requirement title="Available themes" >}}
 You can see a listing of all available syntax highlighting themes, plus examples, in the [Chroma Style Gallery](https://xyproto.github.io/splash/docs/all.html).
-{{< /info >}}
+{{< /requirement >}}
+
+{{< danger title="Available themes" >}}
+You can see a listing of all available syntax highlighting themes, plus examples, in the [Chroma Style Gallery](https://xyproto.github.io/splash/docs/all.html).
+{{< /danger >}}

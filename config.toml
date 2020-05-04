@@ -1,17 +1,20 @@
 title = "Elementary"
 theme = "tract"
-disableKinds = ["taxonomy", "taxonomyTerm"]
+# disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
-description = "tooling for forensic investigations."
+description = "Tooling for forensic investigations."
 icon_set = "ionicons"
 
 [params.colors]
-primary = "#0277bd" # c2185b
+primary = "#c2185b" # c2185b
 secondary = "#0277bd"
 
 [markup.highlight]
-style = "fruity"
+style = "monokai"
+
+[markup.goldmark.renderer]
+unsafe= true
 
 [outputs]
 home = ["HTML", "JSON"]
@@ -29,37 +32,40 @@ type = "monospace"
 # [params.social.twitter]
 # handle = "jonas_plum"
 
+[params.social.slack]
+channel = "open-source-dfir"
+
 [params.social.github]
 repo = "forensicanalysis"
 
 [[menu.main]]
-name = "Docs"
+name = "Documentation"
 identifier = "docs"
 url = "/docs"
 weight = 1
 
-[[menu.main]]
-name = "Getting started"
-parent = "docs"
-url = "/docs/getting-started/"
-weight = 1
+# [[menu.main]]
+# name = "Getting started"
+# parent = "docs"
+# url = "/docs/getting-started/"
+# weight = 1
 
 [[menu.main]]
-name = "Acquisition"
+name = "Usage"
 parent = "docs"
-url = "/docs/acquisition/"
+url = "/docs/usage/"
 weight = 2
 
-[[menu.main]]
-name = "Processing"
-parent = "docs"
-url = "/docs/processing/"
-weight = 3
+# [[menu.main]]
+# name = "Processing"
+# parent = "docs"
+# url = "/docs/processing/"
+# weight = 3
 
 [[menu.main]]
-name = "Architecture"
+name = "Development"
 parent = "docs"
-url = "/docs/architecture/"
+url = "/docs/development/"
 weight = 4
 
 [[menu.main]]
