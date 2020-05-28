@@ -2,6 +2,7 @@
 title: Architecture
 weight: 180
 description:
+draft: true
 ---
 
 # The forensicstore format

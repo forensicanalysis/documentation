@@ -2,6 +2,7 @@
 title: Create a Plugin
 weight: 130
 description:
+draft: true
 ---
 
 TODO

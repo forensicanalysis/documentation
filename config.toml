@@ -7,8 +7,8 @@ description = "Tooling for forensic investigations."
 icon_set = "ionicons"
 
 [params.colors]
-primary = "#c2185b" # c2185b
-secondary = "#0277bd"
+primary = "#ef5350" # c2185b
+secondary = "#37474f" # red: ef5350 grey: 37474f
 
 [markup.highlight]
 style = "monokai"
@@ -20,7 +20,7 @@ unsafe= true
 home = ["HTML", "JSON"]
 
 [[params.fonts]]
-name = "Alata"
+name = "Roboto Slab"
 sizes = [400]
 type = "sans_serif"
 
@@ -28,9 +28,6 @@ type = "sans_serif"
 name = "Roboto Mono"
 sizes = [400]
 type = "monospace"
-
-# [params.social.twitter]
-# handle = "jonas_plum"
 
 [params.social.slack]
 channel = "open-source-dfir"
@@ -44,23 +41,11 @@ identifier = "docs"
 url = "/docs"
 weight = 1
 
-# [[menu.main]]
-# name = "Getting started"
-# parent = "docs"
-# url = "/docs/getting-started/"
-# weight = 1
-
 [[menu.main]]
 name = "Usage"
 parent = "docs"
 url = "/docs/usage/"
 weight = 2
-
-# [[menu.main]]
-# name = "Processing"
-# parent = "docs"
-# url = "/docs/processing/"
-# weight = 3
 
 [[menu.main]]
 name = "Development"
@@ -68,8 +53,8 @@ parent = "docs"
 url = "/docs/development/"
 weight = 4
 
-[[menu.main]]
-name = "Blog"
-identifier = "blog"
-url = "/blog"
-weight = 2
+# [[menu.main]]
+# name = "Blog"
+# identifier = "blog"
+# url = "/blog"
+# weight = 2

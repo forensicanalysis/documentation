@@ -2,6 +2,7 @@
 title: Development Guidelines
 weight: 190
 description:
+draft: true
 ---
 
 ## Code

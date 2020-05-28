@@ -4,41 +4,68 @@ weight: 3
 description:
 ---
 
-The command line tool can either run single commands or workflows
-The command line tool requires a workflow yml file which is executed on an
-arbitrary number of forensicstores, e.g.:
+The `elementary` command line tool can run single commands or workflows, e.g.:
 
-    forensicworkflows workflow --file default.yml test/data/example1.forensicstore
+    elementary run usb test/data/example1.forensicstore
 
-There are currently 3 different types of commands.
+Currently available commands:
 
-##Built-in Command
+- **eventlogs**: Process eventlogs into single events
+- **export**: Export selected elements
+- **hotfixes**: Process windows hotfixes
+- **import-file**: Import files
+- **import-forensicstore**: Import forensicstore files
+- **import-image**: Import images
+- **import-json**: Import json files
+- **networking**: Process windows network interfaces
+- **plaso**: Process with plaso
+- **prefetch**: Process prefetch files
+- **run-keys**: Process windows run keys
+- **services**: Process windows services
+- **shimcache**: Process the shimcache
+- **software**: Process uninstall entries
+- **usb**: Process windows usb artifacts
 
-Run either a builtin Go plugin.
+<!-- TODO: Output --> 
 
-##Docker
+## Command types
 
-Run a docker command. The docker image need to be named xxx/elementary-yyy.
-The forensicstore will be mounted '/store'.
- 
-##Script
+There are three commands types: Built-in Go Commands, Docker Commands or Script Commands.
 
-Run a script command from the config dir. The config is located at:
+### Built-in command
 
-- $XDG_CONFIG_HOME/elementary or $HOME/.config/elementary for Unix systems
-- $HOME/Library/Application Support/elementary on macOS
-- %AppData%/elementary on Windows
+`elementary` contains some builtin commands. Those cannot be dynamically extended via plugins.
 
-The script needs to be prefixed with elementary, e.g. elementary-runkeys.py.
-Workflow format
+### Docker commands
+
+Docker commands utilize installed docker images. Those images need to be named xxx/elementary-yyy. 
+`elementary` loads some image on startup but also handles other images matching the
+naming schema. 
+
+### Script commands
+
+Script commands are rum from the config dir. The config is located at:
+
+- `$XDG_CONFIG_HOME/elementary` or `$HOME/.config/elementary` for Unix systems
+- `$HOME/Library/Application Support/elementary` on macOS
+- `%AppData%/elementary` on Windows
+
+The script needs to be prefixed with elementary, e.g. elementary-runkeys.py. 
+`elementary` installs some scripts on startup but also handles other scripts 
+matching the naming schema. 
+
+<!--
+TODO: ## Workflow format
+
 The workflow.yml file contains a list of tasks like the following:
 
 ```yaml
-    eventlogs:
-        command: eventlogs
-    prefetch:
-        command: prefetch
-        arguments:
-            format: table
-            output: prefetch.txt
+eventlogs:
+    command: eventlogs
+prefetch:
+    command: prefetch
+    arguments:
+        format: table
+        output: prefetch.txt
 ```
+-->

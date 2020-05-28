@@ -17,13 +17,15 @@ buttons: # only on homepage?
   color: black
   icon: logo-github
 ---
+
+<!--
 # Features
 
 - Awesome
 - stuff
 - TODO
 - here
-
+-->
 
 ## Contact
 
