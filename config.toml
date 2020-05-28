@@ -1,6 +1,7 @@
 title = "Elementary"
 theme = "tract"
 # disableKinds = ["taxonomy", "taxonomyTerm"]
+baseURL = "https://forensicanalysis.github.io/documentation"
 
 [params]
 description = "Tooling for forensic investigations."
