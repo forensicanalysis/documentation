@@ -48,11 +48,11 @@ parent = "docs"
 url = "/docs/usage/"
 weight = 2
 
-[[menu.main]]
-name = "Development"
-parent = "docs"
-url = "/docs/development/"
-weight = 4
+# [[menu.main]]
+# name = "Development"
+# parent = "docs"
+# url = "/docs/development/"
+# weight = 4
 
 # [[menu.main]]
 # name = "Blog"
