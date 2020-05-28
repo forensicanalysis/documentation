@@ -7,8 +7,9 @@ description = "Tooling for forensic investigations."
 icon_set = "ionicons"
 
 [params.colors]
-primary = "#ef5350" # c2185b
-secondary = "#37474f" # red: ef5350 grey: 37474f
+primary = "#ef5350"
+secondary = "#37474f"
+# red: ef5350 grey: 37474f
 
 [markup.highlight]
 style = "monokai"
