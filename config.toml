@@ -40,20 +40,20 @@ repo = "forensicanalysis"
 [[menu.main]]
 name = "Documentation"
 identifier = "docs"
-url = "/docs"
+url = "https://forensicanalysis.github.io/documentation/docs/"
 weight = 1
 
 [[menu.main]]
 name = "Usage"
 parent = "docs"
-url = "/docs/usage/"
+url = "https://forensicanalysis.github.io/documentation/docs/usage/"
 weight = 2
 
-# [[menu.main]]
-# name = "Development"
-# parent = "docs"
-# url = "/docs/development/"
-# weight = 4
+[[menu.main]]
+name = "Development"
+parent = "docs"
+url = "https://forensicanalysis.github.io/documentation/docs/development/"
+weight = 4
 
 # [[menu.main]]
 # name = "Blog"

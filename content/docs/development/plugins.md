@@ -1,25 +1,33 @@
 ---
-title: Create a Plugin
+title: Plugins
 weight: 130
 description:
-draft: true
 ---
 
-TODO
+## Command types
 
+There are three commands types: Built-in Go Commands, Docker Commands or Script Commands.
 
-# Create a simple python plugin
+### Built-in command
 
-TODO
+`elementary` contains some builtin commands. Those cannot be dynamically extended via plugins.
 
-# Create an advanced python plugin
+### Docker commands
 
-TODO
+Docker commands utilize installed docker images. Those images need to be named xxx/elementary-yyy. 
+`elementary` loads some image on startup but also handles other images matching the
+naming schema. 
 
-# Create a Go plugin
+### Script commands
 
-TODO
+Script commands are rum from the config dir. The config is located at:
 
-# Create a docker plugin
+- `$XDG_CONFIG_HOME/elementary` or `$HOME/.config/elementary` for Unix systems
+- `$HOME/Library/Application Support/elementary` on macOS
+- `%AppData%/elementary` on Windows
 
-TODO
+The script needs to be prefixed with elementary, e.g. elementary-runkeys.py. 
+`elementary` installs some scripts on startup but also handles other scripts 
+matching the naming schema. 
+
+<!-- Create plugins -->
