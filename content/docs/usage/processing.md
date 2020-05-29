@@ -1,10 +1,10 @@
 ---
-title: Processing / elementary
+title: Processing with elementary
 weight: 3
 description:
 ---
 
-Elementary is a command line tool that can create and process forensicstore 
+Elementary is a command line tool that can create and process forensicstore
 files.
 
 ## Unpack forensicstores
@@ -22,10 +22,10 @@ More examples:
 elementary archive unpack --match "*.pf" TestMachine.forensicstore
 
 # Extract all windows eventlogs recreateing the original folder structure
-elementary archive unpack --match "*.evtx" --mode folder \ 
+elementary archive unpack --match "*.evtx" --mode folder \
     --prefix-artifact=false TestMachine.forensicstore
 ```
-## Run
+## Run forensic tasks
 
 The `elementary` command line tool can run single commands, e.g.:
 
@@ -88,7 +88,7 @@ Process windows usb artifacts
 
 An updated list can be seen using the `elementary run` command.
 
-<!-- TODO: Output --> 
+<!-- TODO: Output -->
 
 
 <!--

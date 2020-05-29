@@ -1,7 +1,7 @@
 ---
-title: 
+title:
 # weight: 20
-description: Elementary is an open source toolset that enables acquisition and processing of artifacts for forensic investigations.
+description: # Elementary is an open source toolset that enables acquisition and processing of artifacts for forensic investigations.
 buttons: # only on homepage?
 - text: Get started
   url: /docs/usage/
@@ -17,16 +17,3 @@ buttons: # only on homepage?
   color: black
   icon: logo-github
 ---
-
-<!--
-# Features
-
-- Awesome
-- stuff
-- TODO
-- here
--->
-
-## Contact
-
-For feedback, questions and discussions you can use the [Open Source DFIR Slack](https://github.com/open-source-dfir/slack).

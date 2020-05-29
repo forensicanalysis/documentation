@@ -5,20 +5,20 @@ description:
 ---
 
 <!-- What is this? -->
-This documentation supports the `artifactcollector` and `elementary` command 
-line tools, `forensicstores` and the related libraries.
+This documentation supports the `artifactcollector` and `elementary` command
+line tools, forensicstores and the related libraries.
 
 <!-- Audience -->
-While the artifactcollector can be run without special IT expertise the 
+While the artifactcollector can be run without special IT expertise the
 elementary tooling and this documentation is aimed at forensicators, incident
-responders and analysts. 
+responders and analysts.
 
 <!-- Other help -->
 <!-- There is also a [blog](../blog) with some example cases. -->
-The code and API 
-documentation is linked in the corresponding 
-[GitHub repositories](https://github.com/forensicanalysis). For questions you 
-can use GitHub or the 
+The code and API
+documentations are linked in the corresponding
+[GitHub repositories](https://github.com/forensicanalysis). For questions you
+can use GitHub or the
 [Open Source DFIR Slack](https://github.com/open-source-dfir/slack).
 
 <!-- TOC -->

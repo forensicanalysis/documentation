@@ -1,5 +1,5 @@
 ---
-title: Plugins
+title: Elementary plugins
 weight: 130
 description:
 ---
@@ -14,9 +14,9 @@ There are three commands types: Built-in Go Commands, Docker Commands or Script 
 
 ### Docker commands
 
-Docker commands utilize installed docker images. Those images need to be named xxx/elementary-yyy. 
+Docker commands utilize installed docker images. Those images need to be named xxx/elementary-yyy.
 `elementary` loads some image on startup but also handles other images matching the
-naming schema. 
+naming schema.
 
 ### Script commands
 
@@ -26,8 +26,8 @@ Script commands are rum from the config dir. The config is located at:
 - `$HOME/Library/Application Support/elementary` on macOS
 - `%AppData%/elementary` on Windows
 
-The script needs to be prefixed with elementary, e.g. elementary-runkeys.py. 
-`elementary` installs some scripts on startup but also handles other scripts 
-matching the naming schema. 
+The script needs to be prefixed with elementary, e.g. elementary-runkeys.py.
+`elementary` installs some scripts on startup but also handles other scripts
+matching the naming schema.
 
 <!-- Create plugins -->
