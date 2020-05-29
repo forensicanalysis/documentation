@@ -4,8 +4,10 @@ theme = "tract"
 baseURL = "https://forensicanalysis.github.io/documentation"
 
 [params]
-description = "Tooling for forensic investigations."
+description = "Elementary is an open source toolset that enables acquisition and processing of artifacts for forensic investigations."
+# Tooling for forensic investigations."
 icon_set = "ionicons"
+# themeVariant = "elem"
 
 [params.colors]
 primary = "#ef5350"
@@ -19,10 +21,10 @@ style = "monokai"
 unsafe= true
 
 [outputs]
-home = ["HTML", "JSON"]
+home = [ "HTML", "RSS", "JSON"]
 
 [[params.fonts]]
-name = "Roboto Slab"
+name = "Roboto"
 sizes = [400]
 type = "sans_serif"
 
@@ -40,19 +42,19 @@ repo = "forensicanalysis"
 [[menu.main]]
 name = "Documentation"
 identifier = "docs"
-url = "https://forensicanalysis.github.io/documentation/docs/"
+url = "manual/"
 weight = 1
 
 [[menu.main]]
 name = "Usage"
 parent = "docs"
-url = "https://forensicanalysis.github.io/documentation/docs/usage/"
+url = "manual/usage/"
 weight = 2
 
 [[menu.main]]
 name = "Development"
 parent = "docs"
-url = "https://forensicanalysis.github.io/documentation/docs/development/"
+url = "manual/development/"
 weight = 4
 
 # [[menu.main]]
