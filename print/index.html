@@ -1,0 +1,101 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="initial-scale=1,maximum-scale=1,user-scalable=no"><meta property="og:title" content="Print View"><meta property="og:type" content="article"><meta property="og:url" content="https://forensicanalysis.github.io/documentation/print/"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="Elementary"><meta name=og:type content="article"><link rel=canonical content="https://forensicanalysis.github.io/documentation/print/"><meta name=generator content="Hugo 0.68.3"><title>Elementary | Print</title><link rel=stylesheet href=/documentation/css/style.d9d74fdc13c40e55d4570b1e4924d9bd385b16c5c98d19d3a3fee1f21b799fe8.css integrity="sha256-2ddP3BPEDlXUVwseSSTZvThbFsXJjRnTo/7h8ht5n+g="><link href=https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css rel=stylesheet><style>ul.contributors{list-style-type:none}ul.contributors:after{content:'';width:100%}.contributors li{text-align:center;display:inline-block;padding-bottom:20px;margin-left:10px;width:150px}.contributors li img{text-align:center;width:100px;border-radius:50%}</style><script src=https://code.jquery.com/jquery-3.4.1.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.1/mermaid.min.js integrity="sha256-l28DspUteK5IQ/BJAooA6UHmm/m4kYuJ4NvoeEmz3K0=" crossorigin=anonymous></script><link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel=stylesheet><style>h1,h2,h3,h4,.nav,.navbar,.title,.has-text-weight-bold,.toc{font-family:roboto slab,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif}.has-bottom-padding{padding-bottom:0}.hero-body,.section{padding:1.5rem}.footer{display:none}.has-text-weight-light{font-weight:600!important}.page{min-height:0}.nav-header{display:none}@media print{body{font-size:10pt}.has-restricted-width{max-width:100vh}}*{border-radius:0!important}</style></head><body class=has-navbar-fixed-top><div class=page><main class=main><section class=section><div class=container><div class="content has-restricted-width has-bottom-padding"><h1>Contents</h1><ul><li><a href=#documentation%2fmanual>The elementary documentation</a></li><li><a href=#documentation%2fmanual%2fusage>Usage</a></li><li><a href=#documentation%2fmanual%2fusage%2facquisition>Acquisition with the artifactcollector</a></li><li><a href=#documentation%2fmanual%2fusage%2fprocessing>Processing with elementary</a></li><li><a href=#documentation%2fmanual%2fdevelopment>Development</a></li><li><a href=#documentation%2fmanual%2fdevelopment%2fcustomize>Collect custom artifacts</a></li><li><a href=#documentation%2fmanual%2fdevelopment%2fcross>Cross compilation</a></li><li><a href=#documentation%2fmanual%2fdevelopment%2fplugins>Elementary plugins</a></li><li><a href=#documentation%2fmanual%2fdevelopment%2fforensicstore>Forensicstore</a></li></ul><h1 id=documentation/manual>The elementary documentation</h1><p>This documentation supports the <code>artifactcollector</code> and <code>elementary</code> command
+line tools, forensicstores and the related libraries.</p><p>While the artifactcollector can be run without special IT expertise the
+elementary tooling and this documentation is aimed at forensicators, incident
+responders and analysts.</p><p>The code and API
+documentations are linked in the corresponding
+<a href=https://github.com/forensicanalysis>GitHub repositories</a>. For questions you
+can use GitHub or the
+<a href=https://github.com/open-source-dfir/slack>Open Source DFIR Slack</a>.</p><p>This documentation is splitted into an <a href=usage>usage</a> sections for users of the
+provided tools and a <a href=development>development</a> section for people that want to
+customize or extent the tools.</p><h1 id=documentation/manual/usage>Usage</h1><div class="admonition is-warning"><div class=columns><div class="column is-1"><span class="icon has-text-warning"><ion-icon size=medium src=/documentation/img/icons/alert.svg></ion-icon></span></div><div class=column><div class=content>The elementary tools can be used as an entry point for your analysis.
+Always double check your results.</div></div></div></div><h2 id=the-elementary-workflow>The elementary workflow</h2><p>The elementary workflow (not to be confused with the elementary workflow
+command) is centered around the forensicstore database file. The forensicstore
+can be created using either the <a href=acquisition>artifactcollector</a> on a live
+system or from a disk image.</p><p>This forensicstore can be <a href=processing>processed using elementary</a> afterwards
+to create reports to investigate e.g. connected usb devices or persistent
+software.</p><div class=mermaid>graph LR;
+A[Live System] -->|artifactcollector| B(forensicstore)
+G[Disk Image] -->|elementary run import-image| B(forensicstore)
+B -->|elementary run x| D[Report]</div><h1 id=documentation/manual/usage/acquisition>Acquisition with the artifactcollector</h1><div class="admonition is-danger"><div class=columns><div class="column is-1"><span class="icon has-text-danger"><ion-icon size=medium src=/documentation/img/icons/nuclear.svg></ion-icon></span></div><div class=column><div class=content>The artifactcollector behaves like malware as it collects
+critical system files and might be detected as a
+virus or malware.</div></div></div></div><h2 id=what-is-the-artifactcollector>What is the artifactcollector?</h2><p>The artifactcollector is a tool to collect forensic artifacts on a system. It
+can be used in forensic investigations to extract specific data instead of
+creating full disk images. The artifactextractor can collect low-level (like $MFT)
+and high-level file artifacts as well as registry keys (e.g. run keys) which can
+then be used in forensic investigations.</p><p><img src=/documentation/manual/usage/ac.png alt></p><p><strong>Figure 1. Running the artifactextractor on Windows.</strong></p><p>The artifactcollector is a single binary that can be transferred to computers which are part of a forensic investigation.</p><h2 id=download>Download</h2><p>All releases of the artifactcollector can be downloaded from <a href=https://github.com/forensicanalysis/artifactcollector/releases>GitHub</a>. Prebuild
+artifactcollectors for Windows, Linux and macOS are availabe. Those
+artifactcollectors collect a predefined set of artifacts which are mostly taken
+from the Sans FOR500 training. Sans provides a comprehensive
+<a href=https://www.sans.org/security-resources/posters/windows-forensic-analysis/170/download>poster</a>
+explaining those artifacts.</p><h2 id=usage>Usage</h2><p>On Windows the <code>artifactcollector.exe</code> can be executed by double clicking it
+on the investigated machine. The user will be provided with a
+<a href=https://en.wikipedia.org/wiki/User_Account_Control>UAC prompt</a> because the
+artifactcollector required administrator rights to run. The collection takes
+some minutes, depending on processing power and contained artifacts.</p><p>On Linux and macOS the <code>artifactcollector</code> needs to be executed as root, e.g.
+<code>sudo artifactcollector</code>. macOS can still prevent the execution, in this case
+right click the artifactcollector, select &ldquo;Open&rdquo;, confirm &ldquo;Open&rdquo; and afterwards
+try again with <code>sudo artifactcollector</code>.</p><h2 id=output>Output</h2><p>The artifactcollecor will create a .forensicstore file and a log file. The log file
+serves two purposes: inform an investigator about errors during the collection but
+also give the user a way to know what elements were extracted. The forensicstore
+contains the results of the extraction and needs to be transferred back to the
+investigator.</p><h1 id=documentation/manual/usage/processing>Processing with elementary</h1><p>Elementary is a command line tool that can create and process forensicstore
+files.</p><h2 id=unpack-forensicstores>Unpack forensicstores</h2><p>To extract all file artifacts stored in the forensicstore you can use:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>elementary archive unpack TestMachine.forensicstore
+</code></pre></div><p>More examples:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e># Extract all prefetch files</span>
+elementary archive unpack --match <span style=color:#e6db74>&#34;*.pf&#34;</span> TestMachine.forensicstore
+
+<span style=color:#75715e># Extract all windows eventlogs recreateing the original folder structure</span>
+elementary archive unpack --match <span style=color:#e6db74>&#34;*.evtx&#34;</span> --mode folder <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --prefix-artifact<span style=color:#f92672>=</span>false TestMachine.forensicstore
+</code></pre></div><h2 id=run-forensic-tasks>Run forensic tasks</h2><p>The <code>elementary</code> command line tool can run single commands, e.g.:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>elementary run usb TestMachine.forensicstore
+</code></pre></div><h1 id=documentation/manual/development>Development</h1><p>Different organizations and investigations require flexible tools that can be
+targeted to most cases, therefore the artifactcollector and elementary provide
+options for customization and extension to handle as many cases as possible.</p><h1 id=documentation/manual/development/customize>Collect custom artifacts</h1><p>Forensic investigations differ and investigators have different approaches in forensic cases. The artifactcollector can cater to these needs by collecting a different set of artifacts related to the situation.</p><h2 id=collect-a-custom-set-of-artifacts>Collect a custom set of artifacts</h2><ol><li>Clone the repository <code>git clone https://github.com/forensicanalysis/artifactcollector</code>.</li><li>Run <code>go generate</code> to download all artifacts.</li><li>Add artifact definition yaml files as needed in <code>pack/artifacts</code>. Do not edit the
+artifact definitions, as they will be overwritten.</li><li>Edit <code>pack/ac.yaml</code> and add the artifacts you want to collect.</li><li>Run <code>go generate</code>. This might yield some errors or problems in your artifacts.</li><li>On windows you can move the syso into the root folder (e.g. <code>cp resources\artifactcollector.syso .</code>)
+to enable the icon for the executable and the UAC popup.</li><li>Run <code>go build .</code> to generates an executable.</li></ol><h3 id=define-artifacts>Define artifacts</h3><p>A structured way to define forensic artifacts was introduced by Google in development of the grr endpoint client: <a href=https://github.com/ForensicArtifacts/artifacts>https://github.com/ForensicArtifacts/artifacts</a>. We use the forked <a href=https://github.com/forensicanalysis/artifacts>https://github.com/forensicanalysis/artifacts</a> as the main repository for
+forensic artifacts definitions, because the main project contains <a href=https://github.com/forensicanalysis/artifacts#backgroundhistory>some issues</a>.</p><p>The artifacts are yaml documents that define different types of forensic artifacts:</p><ul><li>Paths</li><li>Directories</li><li>Files</li><li>Registry Keys and Values</li><li>WMI Queries</li><li>Command execution</li></ul><p>Let’s have a look at an artifact definition for Windows Prefetch files. The artifact defines the location of the prefetch files on Windows.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>name</span>: WindowsPrefetchFiles
+<span style=color:#66d9ef>doc</span>: Windows Prefetch files.
+<span style=color:#66d9ef>sources</span>:
+- <span style=color:#66d9ef>type</span>: FILE
+  <span style=color:#66d9ef>attributes</span>:
+    <span style=color:#66d9ef>paths</span>: [<span style=color:#e6db74>&#39;%%environ_systemroot%%\Prefetch\*.pf&#39;</span>]
+    <span style=color:#66d9ef>separator</span>: <span style=color:#e6db74>&#39;\&#39;
+</span><span style=color:#e6db74>labels: [System]
+</span><span style=color:#e6db74>supported_os: [Windows]
+</span><span style=color:#e6db74>urls: [&#39;</span>http://www.forensicswiki.org/wiki/Prefetch&#39;]
+</code></pre></div><p>If added to the artifactcollector and included in the configuration file, the artifactcollector would collect all .pf files in <code>%%environ_systemroot%%\Prefetch</code>. The <code>%%environ_systemroot%%</code> variable is replaced by the artifactcollector using the WindowsEnvironmentVariableSystemRoot artifact definition. Creating artifacts like can be done on a case by case basis if needed.</p><p>The artifact definition format is described in detail in the
+<a href=https://github.com/forensicanalysis/artifacts/blob/master/style_guide.md>Style Guide</a>.</p><h3 id=embed-binaries>Embed binaries</h3><p>Binaries can be added to <code>pack/bin</code> and than included into the artifactcollector
+in the <code>go generate</code> step. Additionally a corresponding COMMAND artifact like
+the following is required.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>name</span>: Autoruns
+<span style=color:#66d9ef>sources</span>:
+- <span style=color:#66d9ef>type</span>: COMMAND
+  <span style=color:#66d9ef>attributes</span>:
+    <span style=color:#66d9ef>cmd</span>: autorunsc.exe
+    <span style=color:#66d9ef>args</span>: [<span style=color:#e6db74>&#34;-x&#34;</span>, <span style=color:#e6db74>&#34;-accepteula&#34;</span>]
+<span style=color:#66d9ef>supported_os</span>: [Windows]
+</code></pre></div><p>Currently the output to stdout and stderr is saved, but generated
+files are not collected.</p><h1 id=documentation/manual/development/cross>Cross compilation</h1><p>Cross compilation is a bit more difficult, as a cross compiler like MinGW is required by CGO.</p><p>Example cross compilation for Windows:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>CGO_ENABLED<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> CC<span style=color:#f92672>=</span>i686-w64-mingw32-gcc GOOS<span style=color:#f92672>=</span>windows GOARCH<span style=color:#f92672>=</span><span style=color:#ae81ff>386</span> go build .
+CGO_ENABLED<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> CC<span style=color:#f92672>=</span>x86_64-w64-mingw32-gcc GOOS<span style=color:#f92672>=</span>windows GOARCH<span style=color:#f92672>=</span>amd64 go build .
+</code></pre></div><h1 id=documentation/manual/development/plugins>Elementary plugins</h1><h2 id=command-types>Command types</h2><p>There are three commands types: Built-in Go Commands, Docker Commands or Script Commands.</p><h3 id=built-in-command>Built-in command</h3><p><code>elementary</code> contains some builtin commands. Those cannot be dynamically extended via plugins.</p><h3 id=docker-commands>Docker commands</h3><p>Docker commands utilize installed docker images. Those images need to be named xxx/elementary-yyy.
+<code>elementary</code> loads some image on startup but also handles other images matching the
+naming schema.</p><h3 id=script-commands>Script commands</h3><p>Script commands are rum from the config dir. The config is located at:</p><ul><li><code>$XDG_CONFIG_HOME/elementary</code> or <code>$HOME/.config/elementary</code> for Unix systems</li><li><code>$HOME/Library/Application Support/elementary</code> on macOS</li><li><code>%AppData%/elementary</code> on Windows</li></ul><p>The script needs to be prefixed with elementary, e.g. elementary-runkeys.py.
+<code>elementary</code> installs some scripts on startup but also handles other scripts
+matching the naming schema.</p><h1 id=documentation/manual/development/forensicstore>Forensicstore</h1><p>A forensicstore is a forensic database that contains selected forensic artifacts.</p><h1 id=the-forensicstore-format-version-2>The forensicstore format (version 2)</h1><p>The forensicstore format implements the following conventions:</p><ul><li>The forensicstore is a sqlite 3 database containing metadata element and
+compressed raw artifacts.</li><li>The <code>elements</code> table contains all collected registry keys and values as well as
+metadata on files, paths, and processes.</li><li>The files themselves as well as any process output is saved in the <code>sqlar</code> table.</li><li>Elements are represented as json objects.</li><li>Elements are valid STIX 2.1 Observable Objects where applicable.</li><li>Files stored in the forensicstore are referenced by element attributes ending
+in <code>_path</code>, e.g. <code>export_path</code>, <code>stdout_path</code> and <code>wmi_path</code>.</li><li>Element attributes ending in <code>_time</code> or named <code>atime</code>, <code>ctime</code> or <code>mtime</code> are
+assumed to be dates and should be stored according RFC3339/ISO 8601.</li><li>Any element stored in the forensicstore can have an errors attribute that
+contains <code>errors</code> that are related to retrival or processing of this element.</li><li>Raw artifacts are stored using the deflate compression algorithm.</li><li>Artifacts with a compressed size larger than 1,000,000,000 Byte (1 GB) cannot
+be stored.</li></ul></div></div></section></main></div><script src=/documentation/js/app.8aa12458222656d47218d0154d69257c4435211c645649b4c677859bc06fd46f.js integrity="sha256-iqEkWCImVtRyGNAVTWklfEQ1IRxkVkm0xneFm8Bv1G8="></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js integrity="sha256-Yrh3VGzE4d9b4KANknPJAhfcKt9SgHTL0v/FrJFoPzw=" crossorigin=anonymous></script><script type=module src=https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js></script><script nomodule src=https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js></script><script>const numFound=(num,results,found)=>{return `<div class="dropdown-item has-text-weight-bold">
+      ${num} ${results} ${found}
+    </div>
+    <span class="dropdown-divider"></span>`;}
+const result=(url,title,section)=>{return `<a class="dropdown-item" href="${url}">
+      <p class="has-text-grey is-tiny">
+        ${section}
+      </p>
+      <p>
+        ${title}
+      </p>
+    </a>`;}
+$(()=>{const searchBar=$('#search-bar'),searchMenu=$('#search-menu'),searchContent=$('#search-content');const options={shouldSort:true,threshold:0.6,maxPatternLength:32,minMatchCharLength:2,keys:[{name:'title',weight:0.4},{name:'tags',weight:0.2},{name:'summary',weight:0.3,},{name:'body',weight:0.1}]}
+fetch('\/documentation\/index\.json').then((res)=>{return res.json();}).then((idx)=>{const fuse=new Fuse(idx,options);searchBar.on('focusin',()=>{searchBar.on('keyup',()=>{const term=searchBar.val().toLowerCase();if(term){const results=fuse.search(term);const numResults=results.length;if(numResults>0){searchMenu.show();searchContent.empty();var numAdded=0;const numTerm=(numResults==1)?'result':'results';const numItems=numFound(numResults,numTerm,'found');searchContent.append(numItems);results.forEach((res)=>{console.log(res.url);const item=result(res.url,res.title,res.section);searchContent.append(item);searchContent.show();});}}else{searchMenu.hide();}});});});});</script></body></html>
