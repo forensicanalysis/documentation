@@ -1,10 +1,10 @@
 ---
-title:
-# weight: 20
+title: Home
+weight: 5
 description: # Elementary is an open source toolset that enables acquisition and processing of artifacts for forensic investigations.
 buttons: # only on homepage?
 - text: Get started
-  url: /docs/usage/
+  url: /manual/usage/
   icon: arrow-forward
   color: primary
   inverted: true

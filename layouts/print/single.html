@@ -1,0 +1,31 @@
+{{ define "title" }}
+    {{ site.Title }} | Print
+{{ end }}
+
+{{ define "main" }}
+    <div class="page">
+        <main class="main">
+            <section class="section">
+                <div class="container">
+                    <div class="content has-restricted-width has-bottom-padding">
+                        <h1>Contents</h1>
+                        <ul>
+                            {{ range .Site.AllPages }}
+                                {{ if hasPrefix .RelPermalink "/documentation/manual"}}
+                                    <li><a href="#{{ substr .RelPermalink 1 -1 }}">{{ .Title }}</a></li>
+                                {{end}}
+                            {{ end }}
+                        </ul>
+
+                        {{ range .Site.AllPages }}
+                            {{ if hasPrefix .RelPermalink "/documentation/manual"}}
+                                <h1 id="{{ substr .RelPermalink 1 -1 }}">{{ .Title }}</h1>
+                                {{ .Content }}
+                            {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+{{ end }}
