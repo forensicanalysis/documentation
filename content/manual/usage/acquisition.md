@@ -6,7 +6,7 @@ description:
 
 {{< danger >}}
 The artifactcollector collects critical system files using low-level
-methods. It might therefore be be detected as a virus or malware.
+methods. It might therefore be detected as a virus or malware.
 
 Users should be made aware of this fact before being asked to run the tool.
 {{< /danger >}}
