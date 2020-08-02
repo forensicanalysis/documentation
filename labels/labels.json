@@ -1,0 +1,119 @@
+[
+    {
+        "name": "Breaking",
+        "color": "d73a4a",
+        "description": "Introduces a breaking change.",
+        "aliases": [
+            "breaking change",
+            "breaking-change",
+            "Type: Breaking Change",
+            "type: breaking"
+        ]
+    },
+    {
+        "name": "State: Duplicate",
+        "color": "fbca04",
+        "description": "Duplicate of another issue."
+    },
+    {
+        "name": "State: Won't Fix for Now",
+        "color": "91ca55",
+        "description": "The issue is legitimate, but will not be fixed soon. Pull requests are welcome.",
+        "aliases": [
+            "wontfix"
+        ]
+    },
+    {
+        "name": "State: Pending",
+        "color": "fbca04",
+        "description": "Taking action, but need a few things to happen first."
+    },
+    {
+        "name": "Type: Bug",
+        "color": "d73a4a",
+        "description": "Something isn't working.",
+        "aliases": [
+            "bug",
+            "Type: Bug"
+        ]
+    },
+    {
+        "name": "Type: Maintenance",
+        "color": "fef2c0",
+        "description": "Other necessary (but less impactful) tasks."
+    },
+    {
+        "name": "Type: Question",
+        "color": "d4c5f9",
+        "description": "Questions, proposals and info that requires discussion.",
+        "aliases": [
+            "discussion",
+            "feedback",
+            "help wanted",
+            "idea",
+            "Idea",
+            "Proposal",
+            "proposal",
+            "question",
+            "type: design",
+            "Type: Question",
+            "type: question"
+        ]
+    },
+    {
+        "name": "Type: Documentation",
+        "color": "91ca55",
+        "description": "Related to documentation and information.",
+        "aliases": [
+            "doc",
+            "docs",
+            "document",
+            "documentation",
+            "documents",
+            "Type: Documentation",
+            "type: documentation"
+        ]
+    },
+    {
+        "name": "Type: Feature",
+        "color": "5ebeff",
+        "description": "Brand new functionality, features, pages, workflows, endpoints, etc.",
+        "aliases": [
+            "addition",
+            "enhancement",
+            "feature",
+            "type: enhancement",
+            "Type: Feature"
+        ]
+    },
+    {
+        "name": "Type: Fix",
+        "color": "91ca55",
+        "description": "Iterations on existing features or infrastructure.",
+        "aliases": [
+            "fix",
+            "improvement",
+            "optimization",
+            "refactor",
+            "Type: Fix",
+            "Type: Refactoring"
+        ]
+    },
+    {
+        "name": "Type: Security",
+        "color": "d73a4a",
+        "description": "Something is vulnerable or not secure.",
+        "aliases": [
+            "security"
+        ]
+    },
+    {
+        "name": "Type: Testing",
+        "color": "fbca04",
+        "description": "Related to testing.",
+        "aliases": [
+            "test",
+            "testing"
+        ]
+    }
+]
