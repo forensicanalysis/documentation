@@ -5,9 +5,10 @@ description:
 ---
 
 {{< danger >}}
-The artifactcollector behaves like malware as it collects
-critical system files and might be detected as a
-virus or malware.
+The artifactcollector collects critical system files using low-level
+methods. It might therefore be detected as a virus or malware.
+
+Users should be made aware of this fact before being asked to run the tool.
 {{< /danger >}}
 
 ## What is the artifactcollector?
